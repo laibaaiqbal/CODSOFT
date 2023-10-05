@@ -92,6 +92,7 @@ int main()
     cin>>player1;
     cout<<"Enter the name of second player :";
     cin>>player2;
+    do{
     cout<<player1<<" VS "<<player2<<" starts now!"<<endl<<"Mark according to the numbers shown..."<<endl;
     
     while(FunctionThree())
@@ -102,12 +103,25 @@ int main()
     }
     if(sign== 'X' && draw== false)
     {FunctionOne();
-    cout<<"Congratulations! "<<player2<<" has won the game.";}
+    cout<<"Congratulations! "<<player2<<" has won the game."<<endl;}
     else if(sign== 'O' && draw== false)
     {FunctionOne();
-    cout<<"Congratulations! "<<player1<<" has won the game.";}
+    cout<<"Congratulations! "<<player1<<" has won the game."<<endl;}
     else
     {FunctionOne();
     cout<<"Oops! It's a draw..."<<endl;}
+    cout <<"Do you want to play again? (y/n): ";
+    char playAgain;
+    cin >> playAgain;
+
+    if (playAgain!= 'y' && playAgain!= 'Y') 
+    {break;}
+        for (int i= 0; i< 3; i++) 
+            {for (int j= 0; j< 3; j++) 
+                {board[i][j]= '0'+ i*3 + j+ 1;}
+           }
+        sign= 'X'; 
+        draw= false; 
+    } while(true);    
     return 0; 
 } 
